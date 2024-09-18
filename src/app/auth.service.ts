@@ -65,6 +65,8 @@ export class AuthService {
     }
 
 
+
+
     const url = 'https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLTeams';
 
     return this._httpClient.get(url, {
@@ -74,6 +76,8 @@ export class AuthService {
       }
     }).pipe(
       switchMap((response: any) => {
+        console.log(response)
+
         // Store the access token in the local storage
         this.api_key = api_key;
 
