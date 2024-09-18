@@ -14,16 +14,16 @@
     <div class="z-20 relative">
       <section>
         <div
-          class="z-50 max-w-screen-xl mx-auto px-4 py-28 gap-12 text-gray-600 overflow-hidden md:px-8 md:flex">
-          <div class="flex-none space-y-5 max-w-xl">
+          class="z-50 max-w-screen-xl mx-auto px-4 py-12 md:py-28 gap-12 text-gray-600 overflow-hidden md:px-8 md:flex">
+          <div class="flex flex-col space-y-5 max-w-xl">
             <span
-              class="inline-flex gap-x-6 items-center rounded-full p-1 pr-6 border text-sm font-medium duration-150 hover:bg-white">
+              class="hidden md:inline-flex gap-x-6 items-center rounded-full p-1 pr-6 border text-sm font-medium">
               <span
                 class="inline-block rounded-full px-3 py-1 bg-indigo-600 text-white">
                 Football Data
               </span>
               <p class="flex items-center">
-                Get the data that matters to you!
+                Get the information that matters to you!
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -36,59 +36,59 @@
                 </svg>
               </p>
             </span>
+
             <h1 class="text-4xl text-gray-800 font-extrabold sm:text-5xl">
               Get access to real time information about your favorite NFL team
               and favorite players!
             </h1>
-            <p>
+            <h1 class="text-xl text-primary font-medium sm:text-2xl">
+              Whether you want to gain an edge for your fantasy league, or you
+              are just a football data junkie this is the tool for you!
+            </h1>
+            <span>
               This app requires a valid API key for the following API:
-            </p>
-            <a
-              class="text-blue-600 hover:text-indigo-800 hover:underline"
-              href="https://rapidapi.com/tank01/api/tank01-nfl-live-in-game-real-time-statistics-nfl"
-              target="_blank" rel="noopener noreferrer">
-              https://rapidapi.com/tank01/api/tank01-nfl-live-in-game-real-time-statistics-nfl
-            </a>
-            <p>
-              Please enter your API Key below in order to use this application!
-            </p>
-            <div class="flex items-center gap-x-3 sm:text-sm">
+              <br>
               <a
-                href="javascript:void(0)"
-                class="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-gray-800 duration-150 hover:bg-gray-700 active:bg-gray-900 rounded-full md:inline-flex">
-                Get started
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-5 h-5">
-                  <path
-                    fillRule="evenodd"
-                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                    clipRule="evenodd" />
-                </svg>
+                class="text-blue-600 hover:text-indigo-800 hover:underline"
+                href="https://rapidapi.com/tank01/api/tank01-nfl-live-in-game-real-time-statistics-nfl"
+                target="_blank" rel="noopener noreferrer">
+                https://rapidapi.com/tank01/api/tank01-nfl-live-in-game-real-time-statistics-nfl
               </a>
-              <a
-                href="javascript:void(0)"
-                class="flex items-center justify-center gap-x-1 py-2 px-4 text-gray-700 hover:text-gray-900 font-medium duration-150 md:inline-flex">
-                Contact sales
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-5 h-5">
-                  <path
-                    fillRule="evenodd"
-                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                    clipRule="evenodd" />
-                </svg>
-              </a>
+            </span>
+            <div class="flex flex-col">
+              <mat-form-field class="w-full md:w-3/4">
+                <mat-label>Enter Your API Key</mat-label>
+                <input [(ngModel)]="api_key" matInput>
+              </mat-form-field>
+              <div>
+                @if(!!api_key){
+                <button
+                  (click)="submitAPIKey()"
+                  color="primary"
+                  mat-flat-button>Explore Data</button>
+                }
+                @else {
+                <button
+                  [disabled]="true"
+                  color="primary"
+                  mat-flat-button>Explore Data</button>
+                }
+              </div>
             </div>
+
+            <div class="text-md text-center w-full">
+              Thank you to the creator of this API, <a
+                class="text-blue-600 hover:text-indigo-800"
+                href="https://rapidapi.com/user/tank01" target="_blank"
+                rel="noopener noreferrer">tank01</a> for providing access to
+              this amazing API. Check out his other API's!
+            </div>
+
           </div>
         </div>
         <img
           src="assets/play-design.svg"
-          class="optimzeImage shrink-0 hidden sm:block sm:z-0 mx-auto max-w-2xl blur-sm lg:translate-y-[-17rem]  lg:translate-x-[17rem] transition duration-700 ease-in-out" />
+          class="shrink-0 hidden sm:block sm:z-0 mx-auto max-w-2xl blur-sm lg:translate-y-[-30rem]  lg:translate-x-[20rem] transition duration-700 ease-in-out" />
       </section>
     </div>
   </div>
