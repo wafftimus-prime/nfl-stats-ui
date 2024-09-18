@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-bg-blur',
   template: `
     <div
-    class="absolute inset-0 blur-xl max-h-[580px] flex-auto"
+    class="z-10 absolute inset-0 blur-xl max-h-[580px] flex-auto"
     style="
       background: linear-gradient(
         143.6deg,
