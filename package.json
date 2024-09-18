@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "nfl-data": "ng serve nfl-stats-ui --host 0.0.0.0 --ssl --port 4200"
   },
   "private": true,
   "dependencies": {
