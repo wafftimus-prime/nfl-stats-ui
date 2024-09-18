@@ -76,16 +76,14 @@ export class AuthService {
       }
     }).pipe(
       switchMap((response: any) => {
-        console.log(response)
+        if (response.statusCode === 200) {
 
-        // Store the access token in the local storage
-        this.api_key = api_key;
+          // Store the access token in the local storage
+          this.api_key = api_key;
 
-        // Set the authenticated flag to true
-        this._authenticated = true;
-
-        // Store the user on the user service
-        // this._userService.user = response.user;
+          // Set the authenticated flag to true
+          this._authenticated = true;
+        }
 
         // Return a new observable with the response
         return of(response);
