@@ -1,20 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { GmtrePlatformConfigService, UserStore } from '@gmtre-devkit';
-import { } from '@gmtre-features';
-import {
-  fetchAuthSession,
-  fetchUserAttributes,
-  signOut,
-} from 'aws-amplify/auth';
-import { catchError, from, Observable, of, switchMap, throwError } from 'rxjs';
+import { from, Observable, of, switchMap, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private _authenticated: boolean = false;
   private _httpClient = inject(HttpClient);
 
-  constructor(private config: GmtrePlatformConfigService) { }
+  constructor() { }
 
   // -----------------------------------------------------------------------------------------------------
   // @ Accessors
@@ -81,7 +74,6 @@ export class AuthService {
       }
     }).pipe(
       switchMap((response: any) => {
-        console.log(response)
         // Store the access token in the local storage
         this.api_key = api_key;
 
@@ -112,6 +104,21 @@ export class AuthService {
    */
   check(): Observable<boolean> {
     return from(this.currentAuthenticatedUser());
+  }
+
+  async currentAuthenticatedUser(): Promise<boolean> {
+    try {
+      if (!!this.api_key) {
+        this._authenticated = true;
+        return true;
+      } else {
+        this._authenticated = false;
+        return false;
+      }
+    } catch (err: any) {
+      console.log(JSON.stringify(err));
+      return false;
+    }
   }
 
 }

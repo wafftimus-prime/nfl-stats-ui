@@ -11,15 +11,10 @@ export const AuthGuard: CanActivateFn | CanActivateChildFn = (route, state) => {
     .check()
     .pipe(
       switchMap((authenticated) => {
-        console.log(authenticated)
-
         // If the user is not authenticated...
         if (!authenticated) {
-          console.log("INVALID API KEY")
-          // // Redirect to the sign-in page with a redirectUrl param
-          // const redirectURL =
-          //   state.url === '/sign-out' ? '' : `redirectURL=${state.url}`;
-          // const urlTree = router.parseUrl(`/auth/sign-in?${redirectURL}`);
+          // Redirect to the sign-in page with a redirectUrl param
+          const urlTree = router.parseUrl(`/login`);
 
           return of(urlTree);
         }
