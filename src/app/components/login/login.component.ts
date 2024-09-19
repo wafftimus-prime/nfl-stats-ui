@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { BackgroundBlurComponent } from './components/bg-blur.component';
-import { AuthService } from '../auth.service';
+import { BackgroundBlurComponent } from '../bg-blur.component';
+import { AuthService } from '../../data/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
