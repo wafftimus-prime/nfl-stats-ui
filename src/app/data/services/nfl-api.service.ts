@@ -10,7 +10,7 @@ export class NflApiService {
 
   fetchTeams(api_key: string): Observable<any> {
     // Throw error, if the user is already logged in
-    const url = 'https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLTeams';
+    const url = 'https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLTeams?sortBy=standings&schedules=true&topPerformers=true&teamStats=true';
 
     return this._httpClient.get(url, {
       headers: {
