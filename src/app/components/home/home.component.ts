@@ -3,12 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { UiBaseClass } from '../base';
 import { TeamListComponent } from '../team-list/team-list.component';
+import { FreeAgentsListComponent } from '../free-agents-list/free-agents-list.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatTabsModule, TeamListComponent]
+  imports: [CommonModule, MatTabsModule, TeamListComponent, FreeAgentsListComponent]
 })
 export class HomeComponent extends UiBaseClass implements OnInit {
   selectedTab = 'Overview';
@@ -29,6 +30,7 @@ export class HomeComponent extends UiBaseClass implements OnInit {
 
     console.log(this.teams)
     console.log(this.players)
+    console.log(this.players.filter(p => p.isFreeAgent === "True" && p.team === "BUF"))
     console.log(this.players.filter(p => p.isFreeAgent !== "True" && p.team === "BUF"))
   }
 

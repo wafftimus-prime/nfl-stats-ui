@@ -1,0 +1,64 @@
+ <table class="min-w-full leading-normal">
+  <thead>
+    <tr>
+      @for ( h of headers; track h) {
+      <th scope="col"
+        class="sticky top-0 z-10 bg-opacity-100 px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200 w-1/4">
+        {{h}}
+      </th>
+      }
+    </tr>
+  </thead>
+</table>
+<cdk-virtual-scroll-viewport [itemSize]="20" class="example-viewport">
+  <table class="min-w-full leading-normal">
+    <tbody>
+      <tr *cdkVirtualFor="let t of free_agents">
+        <td
+          class="w-1/4 px-5 py-5 text-sm bg-white border-b border-gray-200">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <a href="#" class="relative block">
+                <img alt="profil" [src]="t.espnHeadshot"
+                  class="mx-auto object-cover rounded-full h-10 w-10 " />
+              </a>
+            </div>
+            <div class="ml-3">
+              <p class="text-gray-900 whitespace-normal">
+                {{t.longName}}
+              </p>
+              <p class="text-gray-600 text-sm whitespace-no-wrap">
+                {{t.age}} {{t.height}} {{t.weight}}lbs
+              </p>
+            </div>
+          </div>
+        </td>
+        <td
+          class="w-1/4 px-5 py-5 text-sm bg-white border-b border-gray-200">
+          <p class="text-gray-900 whitespace-no-wrap">
+            {{t.jerseyNum}}
+            {{t.pos}}
+          </p>
+        </td>
+        <td
+          class="w-1/4 px-5 py-5 text-sm bg-white border-b border-gray-200">
+          <p class="text-gray-900 whitespace-no-wrap">
+            {{t.team}}
+          </p>
+        </td>
+        <td
+          class="w-1/4 px-5 py-5 text-sm bg-white border-b border-gray-200">
+          <span
+            class="relative inline-block px-3 py-1 font-semibold leading-tight">
+            <span aria-hidden="true"
+              class="absolute inset-0 rounded-full opacity-50">
+            </span>
+            <span class="relative">
+              {{t.school}}-({{t.exp}})
+            </span>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</cdk-virtual-scroll-viewport>
